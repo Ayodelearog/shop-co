@@ -32,7 +32,9 @@ export function MobileNav() {
 										src="/ShopCo_icons/hamburger.svg"
 										width={24}
 										height={24}
+										priority
 										alt="hamburger menu"
+										className="object-contain"
 									/>
 								</button>
 							</SheetTrigger>
@@ -121,25 +123,25 @@ export function MobileNav() {
 				>
 					<Image
 						src="/ShopCo_icons/search.svg"
-						layout="fill"
-						objectFit="contain"
+						fill={true}
 						alt="Search icon"
+						className="object-contain"
 					/>
 				</motion.button>
 				<button className="relative w-6 h-6" aria-label="Cart">
 					<Image
 						src="/ShopCo_icons/cart.svg"
-						layout="fill"
-						objectFit="contain"
+						fill={true}
 						alt="cart icon"
+						className="object-contain"
 					/>
 				</button>
 				<button className="relative w-6 h-6" aria-label="Account">
 					<Image
 						src="/ShopCo_icons/accounts.svg"
-						layout="fill"
-						objectFit="contain"
+						fill={true}
 						alt="accounts icon"
+						className="object-contain"
 					/>
 				</button>
 			</div>
