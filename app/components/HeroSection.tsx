@@ -146,7 +146,7 @@ const HeroSection = () => {
 					animate="visible"
 				>
 					<Image
-						src="/shopco_images/hero-img-mobile.png"
+						src="/ShopCo_images/hero-img-mobile.png"
 						fill
 						alt="hero image"
 						className="object-cover"
@@ -159,7 +159,7 @@ const HeroSection = () => {
 						className="absolute w-[76px] h-[76px] right-[21px] top-[40px]"
 					>
 						<Image
-							src="/shopco_images/star.png"
+							src="/ShopCo_images/star.png"
 							fill
 							alt="big star"
 							className="object-contain"
@@ -173,7 +173,7 @@ const HeroSection = () => {
 						className="absolute w-[44px] h-[44px] left-[27px] top-[137px]"
 					>
 						<Image
-							src="/shopco_images/star.png"
+							src="/ShopCo_images/star.png"
 							fill
 							alt="small star"
 							className="object-contain"
@@ -194,7 +194,7 @@ const HeroSection = () => {
 					>
 						<div className="relative w-[117px] h-[10vw]">
 							<Image
-								src="/shopco_images/versace.png"
+								src="/ShopCo_images/versace.png"
 								fill
 								alt="versace"
 								className="object-contain"
@@ -204,7 +204,7 @@ const HeroSection = () => {
 
 						<div className="relative w-[63px] h-[10vw]">
 							<Image
-								src="/shopco_images/zara.png"
+								src="/ShopCo_images/zara.png"
 								fill
 								alt="zara"
 								className="object-contain"
@@ -213,7 +213,7 @@ const HeroSection = () => {
 
 						<div className="relative w-[109px] h-[10vw]">
 							<Image
-								src="/shopco_images/gucci.png"
+								src="/ShopCo_images/gucci.png"
 								fill
 								alt="gucci"
 								className="object-contain"
@@ -227,7 +227,7 @@ const HeroSection = () => {
 					>
 						<div className="relative w-[127px] h-[10vw]">
 							<Image
-								src="/shopco_images/prada.png"
+								src="/ShopCo_images/prada.png"
 								fill
 								alt="prada"
 								className="object-contain"
@@ -235,7 +235,7 @@ const HeroSection = () => {
 						</div>
 						<div className="relative w-[135px] h-[10vw]">
 							<Image
-								src="/shopco_images/calvin-klein.png"
+								src="/ShopCo_images/calvin-klein.png"
 								fill
 								alt="calvin klein"
 								className="object-contain"
