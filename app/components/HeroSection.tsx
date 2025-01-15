@@ -69,14 +69,14 @@ const HeroSection = () => {
 					animate="visible"
 				>
 					<motion.h1
-						className="text-[36px] font-bold font-integral leading-[34px] text-center"
+						className="text-[36px] font-bold font-integral leading-[34px] text-left"
 						variants={itemVariants}
 					>
 						FIND CLOTHES THAT MATCHES YOUR STYLE
 					</motion.h1>
 
 					<motion.p
-						className="text-[14px] font-regular font-satoshi leading-[20px] text-center"
+						className="text-[14px] font-regular font-satoshi leading-[20px] text-left"
 						variants={itemVariants}
 					>
 						Browse through our diverse range of meticulously crafted garments,
@@ -84,7 +84,10 @@ const HeroSection = () => {
 						style.
 					</motion.p>
 
-					<motion.div variants={itemVariants}>
+					<motion.div
+					 variants={itemVariants}
+					 className="w-full"
+					 >
 						<Link
 							href="#"
 							className={buttonVariants({
@@ -194,7 +197,8 @@ const HeroSection = () => {
 								src="/shopco_images/versace.png"
 								fill
 								alt="versace"
-								style={{ objectFit: "contain" }}
+								className="object-contain"
+								
 							/>
 						</div>
 
@@ -203,7 +207,7 @@ const HeroSection = () => {
 								src="/shopco_images/zara.png"
 								fill
 								alt="zara"
-								style={{ objectFit: "contain" }}
+								className="object-contain"
 							/>
 						</div>
 
@@ -212,7 +216,7 @@ const HeroSection = () => {
 								src="/shopco_images/gucci.png"
 								fill
 								alt="gucci"
-								style={{ objectFit: "contain" }}
+								className="object-contain"
 							/>
 						</div>
 					</motion.div>
@@ -226,7 +230,7 @@ const HeroSection = () => {
 								src="/shopco_images/prada.png"
 								fill
 								alt="prada"
-								style={{ objectFit: "contain" }}
+								className="object-contain"
 							/>
 						</div>
 						<div className="relative w-[135px] h-[10vw]">
@@ -234,7 +238,7 @@ const HeroSection = () => {
 								src="/shopco_images/calvin-klein.png"
 								fill
 								alt="calvin klein"
-								style={{ objectFit: "contain" }}
+								className="object-contain"
 							/>
 						</div>
 					</motion.div>

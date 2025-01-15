@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
-import { MobileNav } from "./components/MobileNav";
+import { MobileNav } from "./components/ui/MobileNav";
 
 const integralCF = localFont({
   src: [
