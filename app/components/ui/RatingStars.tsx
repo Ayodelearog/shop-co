@@ -16,7 +16,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
           return (
             <Image
               key={index}
-              src="/shopco_icons/rate-star-full.svg"
+              src="/ShopCo_icons/rate-star-full.svg"
               alt="Full star"
               width={18}
               height={18}
@@ -26,7 +26,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
           return (
             <div key={index} className="relative w-[18px] h-[18px]">
               <Image
-                src="/shopco_icons/rate-star-half.svg"
+                src="/ShopCo_icons/rate-star-half.svg"
                 alt="Half star"
                 width={18}
                 height={9}
@@ -38,7 +38,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
           return (
             <Image
               key={index}
-              src="/shopco_icons/rate-star-empty.svg"
+              src="/ShopCo_icons/rate-star-empty.svg"
               alt="Empty star"
               width={18}
               height={18}
