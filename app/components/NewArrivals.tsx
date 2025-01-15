@@ -49,7 +49,7 @@ const NewArrivals = () => {
 
                 <div className="flex items-center gap-4 pl-4 w-full overflow-y-hidden overflow-x-auto py-4">
                     {
-                        mensCategory.map((product, index) => (
+                        mensCategory.map((produc) => (
 
                             <ProductCard key={product.id} product={product} />
                         ))
