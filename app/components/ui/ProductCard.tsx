@@ -3,12 +3,7 @@ import Image from "next/image";
 import { Product } from "@/lib/store";
 import RatingStars from "./RatingStars";
 
-// interface ProductCardProps {
-//     img: string;
-//     alt: string;
-//     title: string;
-//     price: number;
-// }
+
 
 interface ProductCardProps {
 	product: Product;
