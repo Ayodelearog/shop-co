@@ -10,7 +10,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-	console.log(product);
+	
 	return (
 		<div className="w-[198px]  flex flex-col gap-[10px]">
 			<div className="w-[198px] h-[200px] relative rounded-[14px]">
@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 				<div className="flex items-center gap-3">
                 <RatingStars rating={product.rating.rate} />
-					<span className="text-[14px] font-satoshi font-regular">4.5/5</span>
+					<span className="text-[14px] font-satoshi font-regular">{product.rating.rate}</span>
 				</div>
 				<p className="text-6 font-satoshi font-bold">${product.price}</p>
 			</div>

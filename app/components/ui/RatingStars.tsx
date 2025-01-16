@@ -10,7 +10,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
   const hasHalfStar = rating % 1 >= 0.5;
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center gap-1">
       {[...Array(5)].map((_, index) => {
         if (index < fullStars) {
           return (
@@ -24,25 +24,26 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating }) => {
           );
         } else if (index === fullStars && hasHalfStar) {
           return (
-            <div key={index} className="relative w-[18px] h-[18px]">
+            <div key={index} className="relative w-[9px] h-[18px]">
               <Image
                 src="/ShopCo_icons/rate-star-half.svg"
                 alt="Half star"
-                width={18}
-                height={9}
+                width={9}
+                height={18}
                 className="absolute bottom-0"
               />
             </div>
           );
         } else {
           return (
-            <Image
-              key={index}
-              src="/ShopCo_icons/rate-star-empty.svg"
-              alt="Empty star"
-              width={18}
-              height={18}
-            />
+            // <Image
+            //   key={index}
+            //   src="/ShopCo_icons/rate-star-empty.svg"
+            //   alt="Empty star"
+            //   width={18}
+            //   height={18}
+            // />
+            ""
           );
         }
       })}

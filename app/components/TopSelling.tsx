@@ -6,7 +6,7 @@ import ProductCard from "./ui/ProductCard";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
-const NewArrivals = () => {
+const TopSelling = () => {
 	const itemVariants = {
 		hidden: { opacity: 0, y: -50 },
 		visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -14,17 +14,17 @@ const NewArrivals = () => {
 
 	const { isLoading, error, fetchProductsByCategory } = useProductStore();
 
-	const [mensCategory, setMensCategory] = useState<Product[]>([]);
+	const [electronicsCategory, setElectronicsCategory] = useState<Product[]>([]);
 
 	useEffect(() => {
-		const fetchMensClothing = async () => {
-			const productArr = await fetchProductsByCategory("men's clothing", false);
-			setMensCategory(productArr);
+		const fetchElectronics = async () => {
+			const productArr = await fetchProductsByCategory("electronics", false);
+			setElectronicsCategory(productArr);
 
-			console.log(productArr);
+		
 		};
 
-		fetchMensClothing();
+		fetchElectronics();
 	}, [fetchProductsByCategory]);
 
 	if (isLoading) return <div>Loading...</div>;
@@ -32,16 +32,16 @@ const NewArrivals = () => {
 
 	return (
 		<section className=" w-full">
-			<div className="pt-[50px] w-full flex flex-col gap-6 justify-center ">
+			<div className="pt-[40px] w-full flex flex-col gap-6 justify-center ">
 				<motion.h2
 					className="text-[36px] font-bold font-integral leading-[34px] text-center"
 					variants={itemVariants}
 				>
-					NEW ARRIVALS
+					TOP SELLING
 				</motion.h2>
 
 				<div className="flex items-center gap-4 pl-4 w-full overflow-y-hidden overflow-x-auto py-4 mt-2">
-					{mensCategory.map((product) => (
+					{electronicsCategory.map((product) => (
 						<ProductCard key={product.id} product={product} />
 					))}
 				</div>
@@ -61,7 +61,7 @@ const NewArrivals = () => {
 					</Link>
 				</div>
 
-                <div className="w-full border-t border-black border-opacity-10 mt-10"></div>
+                {/* <div className="w-full border-t border-black border-opacity-10 mt-10"></div> */}
                 </div>
 
 			</div>
@@ -69,4 +69,4 @@ const NewArrivals = () => {
 	);
 };
 
-export default NewArrivals;
+export default TopSelling;
