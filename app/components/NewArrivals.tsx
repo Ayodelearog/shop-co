@@ -42,28 +42,28 @@ const NewArrivals = () => {
 
 				<div className="flex items-center gap-4 pl-4 w-full overflow-y-hidden overflow-x-auto py-4 mt-2">
 					{mensCategory.map((product) => (
-						<ProductCard key={product.id} product={product} />
+						<Link href={`/products/${product.id}`} key={product.id}>
+							<ProductCard product={product} />
+						</Link>
 					))}
 				</div>
 
-                <div className="px-4">
+				<div className="px-4">
+					<div className="w-full mt-1">
+						<Link
+							href="#"
+							className={buttonVariants({
+								variant: "outline",
+								className:
+									"w-full rounded-full text-black bg-transparent py-4 px-[54px] text-base font-satoshi font-[400]  border-black border-opacity-10",
+							})}
+						>
+							View All
+						</Link>
+					</div>
 
-				<div className="w-full mt-1">
-					<Link
-						href="#"
-						className={buttonVariants({
-							variant: "outline",
-							className:
-								"w-full rounded-full text-black bg-transparent py-4 px-[54px] text-base font-satoshi font-[400]  border-black border-opacity-10",
-						})}
-					>
-						View All
-					</Link>
+					<div className="w-full border-t border-black border-opacity-10 mt-10"></div>
 				</div>
-
-                <div className="w-full border-t border-black border-opacity-10 mt-10"></div>
-                </div>
-
 			</div>
 		</section>
 	);

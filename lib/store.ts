@@ -28,6 +28,7 @@ interface ProductStore {
   error: string | null
   fetchProducts: () => Promise<void>
   fetchProductsByCategory: (category: string, updateStore?: boolean) => Promise<Product[]>
+  fetchProductById: (id: number) => Promise<Product | null>
   fetchCategories: () => Promise<void>
   setCurrentCategory: (category: string | null) => void
   addToCart: (product: Product) => void
@@ -35,6 +36,31 @@ interface ProductStore {
   updateCartItemQuantity: (productId: number, quantity: number) => void
   clearCart: () => void
   clearError: () => void
+}
+
+const storage = {
+  getItem: (name: string): string | null => {
+    try {
+      return localStorage.getItem(name)
+    } catch (error) {
+      console.warn(`Error reading from localStorage:`, error)
+      return null
+    }
+  },
+  setItem: (name: string, value: string): void => {
+    try {
+      localStorage.setItem(name, value)
+    } catch (error) {
+      console.warn(`Error writing to localStorage:`, error)
+    }
+  },
+  removeItem: (name: string): void => {
+    try {
+      localStorage.removeItem(name)
+    } catch (error) {
+      console.warn(`Error removing item from localStorage:`, error)
+    }
+  },
 }
 
 export const useProductStore = create<ProductStore>()(
@@ -80,6 +106,21 @@ export const useProductStore = create<ProductStore>()(
             set({ filteredProducts: [] })
           }
           return []
+        }
+      },
+      fetchProductById: async (id: number) => {
+        set({ isLoading: true, error: null })
+        try {
+          const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+          if (!response.ok) {
+            throw new Error(`Failed to fetch product: ${response.statusText}`)
+          }
+          const data = await response.json()
+          set({ isLoading: false })
+          return data
+        } catch (error) {
+          set({ error: (error as Error).message, isLoading: false })
+          return null
         }
       },
       fetchCategories: async () => {
@@ -140,7 +181,14 @@ export const useProductStore = create<ProductStore>()(
     }),
     {
       name: 'product-storage',
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => storage),
+      // onRehydrateStorage: () => (state) => {
+      //   // if (state) {
+      //   //   console.log('State rehydrated successfully')
+      //   // } else {
+      //   //   console.warn('Failed to rehydrate state')
+      //   // }
+      // },
     }
   )
 )

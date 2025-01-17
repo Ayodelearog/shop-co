@@ -66,38 +66,38 @@ const Footer = () => {
 				</div>
 				<div className="w-full flex flex-col items-start gap-4">
 					<h4 className="text-[14px] font-satoshi leading-[18px] text-black font-medium tracking-[3px]">
-						COMPANY
+						HELP
 					</h4>
 
-					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal flex flex-col gap-2">
-						<Link href="#">About</Link>
-						<Link href="#">Features</Link>
-						<Link href="#">Works</Link>
+					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal flex flex-col gap-2  capitalize">
+						<Link href="#">Customer Support</Link>
+						<Link href="#">delivery details</Link>
+						<Link href="#">terms & conditions</Link>
 						<Link href="#">Career</Link>
+					</div>privacy policy
+				</div>
+				<div className="w-full flex flex-col items-start gap-4">
+					<h4 className="text-[14px] font-satoshi leading-[18px] text-black font-medium tracking-[3px]">
+						FAQ
+					</h4>
+
+					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal capitalize flex flex-col gap-2">
+						<Link href="#">account</Link>
+						<Link href="#">manage deliveries</Link>
+						<Link href="#">orders</Link>
+						<Link href="#">payment</Link>
 					</div>
 				</div>
 				<div className="w-full flex flex-col items-start gap-4">
 					<h4 className="text-[14px] font-satoshi leading-[18px] text-black font-medium tracking-[3px]">
-						COMPANY
+						RESOURCES
 					</h4>
 
-					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal flex flex-col gap-2">
-						<Link href="#">About</Link>
-						<Link href="#">Features</Link>
-						<Link href="#">Works</Link>
-						<Link href="#">Career</Link>
-					</div>
-				</div>
-				<div className="w-full flex flex-col items-start gap-4">
-					<h4 className="text-[14px] font-satoshi leading-[18px] text-black font-medium tracking-[3px]">
-						COMPANY
-					</h4>
-
-					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal flex flex-col gap-2">
-						<Link href="#">About</Link>
-						<Link href="#">Features</Link>
-						<Link href="#">Works</Link>
-						<Link href="#">Career</Link>
+					<div className="text-[14px] font-satoshi leading-4 text-black text-opacity-60 font-normal  flex flex-col gap-2">
+						<Link href="#">Free eBook</Link>
+						<Link href="#">Development Tutorial</Link>
+						<Link href="#">How-to-Blog</Link>
+						<Link href="#">Youtube Playlist</Link>
 					</div>
 				</div>
 			</div>
