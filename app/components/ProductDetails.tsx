@@ -8,7 +8,7 @@ import {
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Product, useProductStore } from "@/lib/store";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import RatingStars from "./ui/RatingStars";
 import { Button } from "@/components/ui/button";
@@ -20,17 +20,37 @@ interface ProductDetailsProps {
 	product: Product;
 }
 
+const sizes = [
+	{ id: 1, label: "Small" },
+	{ id: 2, label: "Medium" },
+	{ id: 3, label: "Large" },
+	{ id: 4, label: "X-Large" },
+];
+
 const ProductDetails = ({ product }: ProductDetailsProps) => {
 	const addToCart = useProductStore((state) => state.addToCart);
 	const updateCartItemQuantity = useProductStore(
 		(state) => state.updateCartItemQuantity
 	);
-	const [activeId, setActiveId] = useState(0);
+	const [activeId, setActiveId] = useState<number | null>(null);
 	const [itemQuantity, setItemQuantity] = useState<number>(1);
 	const { showToast } = useToast();
 
+	// const [header, setHeader] = useState("");
+	const [categoryLink, setCategoryLink] = useState("");
+
+	useEffect(() => {
+		if (product.category.includes("men's")) {
+			// setHeader("New Arrivals");
+			setCategoryLink("/category/men's clothing");
+		} else {
+			// setHeader("Top Selling");
+			setCategoryLink("/category/electronics");
+		}
+	}, [product]);
+
 	const handlePillClick = (pillId: number) => {
-		setActiveId(pillId);
+		setActiveId((prevId) => (prevId === pillId ? null : pillId));
 	};
 
 	const handleIncrement = () => {
@@ -38,16 +58,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 	};
 
 	const handleDecrement = () => {
-		setItemQuantity((prevQuantity) => Math.max(1, prevQuantity - 1)); // Prevent going below 1
+		setItemQuantity((prevQuantity) => Math.max(1, prevQuantity - 1));
 	};
 
 	const handleAddToCart = () => {
 		updateCartItemQuantity(product.id, itemQuantity);
 		addToCart({ ...product });
-		showToast(
-			`Added ${itemQuantity} ${itemQuantity > 1 ? "items" : "item"} to cart`,
-			"success"
-		);
+		showToast(`Added 1 item to cart`, "success");
 	};
 
 	return (
@@ -60,7 +77,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbLink href="/products/1">Products</BreadcrumbLink>
+							<BreadcrumbLink href={categoryLink}>Products</BreadcrumbLink>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
@@ -107,47 +124,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 						Choose Size
 					</p>
 
-					<div className="w-full flex items-center gap-2">
-						<div
-							onClick={() => handlePillClick(1)}
-							className={`flex items-center justify-center rounded-full py-2.5 px-5 transition-colors duration-500 ease-in-out font-satoshi text-[14px] font-normal text-opacity-60 text-black select-none ${
-								activeId === 1
-									? "bg-black text-white text-opacity-100"
-									: "bg-gray"
-							}`}
-						>
-							Small
-						</div>
-						<div
-							onClick={() => handlePillClick(2)}
-							className={`flex items-center justify-center rounded-full py-2.5 px-5 transition-colors duration-500 ease-in-out font-satoshi text-[14px] font-normal text-opacity-60 text-black select-none ${
-								activeId === 2
-									? "bg-black text-white text-opacity-100"
-									: "bg-gray"
-							}`}
-						>
-							Medium
-						</div>
-						<div
-							onClick={() => handlePillClick(3)}
-							className={`flex items-center justify-center rounded-full py-2.5 px-5 transition-colors duration-500 ease-in-out font-satoshi text-[14px] font-normal text-opacity-60 text-black select-none ${
-								activeId === 3
-									? "bg-black text-white text-opacity-100"
-									: "bg-gray"
-							}`}
-						>
-							Large
-						</div>
-						<div
-							onClick={() => handlePillClick(4)}
-							className={`flex items-center justify-center rounded-full py-2.5 px-5 transition-colors duration-500 ease-in-out font-satoshi text-[14px] font-normal text-opacity-60 text-black select-none ${
-								activeId === 4
-									? "bg-black text-white text-opacity-100"
-									: "bg-gray"
-							}`}
-						>
-							X-Large
-						</div>
+					<div className="w-full flex items-center flex-wrap gap-2">
+						{sizes.map((size) => (
+							<div
+								key={size.id}
+								onClick={() => handlePillClick(size.id)}
+								className={`flex items-center justify-center rounded-full py-2.5 px-5 transition-colors duration-500 ease-in-out font-satoshi text-[14px] font-normal text-opacity-60 text-black select-none ${
+									activeId === size.id
+										? "bg-black text-white text-opacity-100"
+										: "bg-gray"
+								}`}
+							>
+								{size.label}
+							</div>
+						))}
 					</div>
 				</div>
 

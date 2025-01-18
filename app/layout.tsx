@@ -64,8 +64,8 @@ export default function RootLayout({
 			<body
 				className={`${integralCF.variable} ${satoshi.variable} antialiased`}
 			>
-				<MobileNav />
 				<main>
+					<MobileNav />
 					<ToastProvider>{children}</ToastProvider>
 				</main>
 			</body>

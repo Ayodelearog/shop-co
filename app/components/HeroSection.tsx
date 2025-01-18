@@ -6,14 +6,36 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const playTone = () => {
+	const audioContext = new (window.AudioContext ||
+		(window as typeof window & { webkitAudioContext: typeof AudioContext })
+			.webkitAudioContext)();
+
+	const oscillator = audioContext.createOscillator();
+	oscillator.type = "sine"; // Tone type: sine, square, triangle, or sawtooth
+	oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // Frequency in Hz (A4 note)
+	oscillator.connect(audioContext.destination);
+	oscillator.start();
+	oscillator.stop(audioContext.currentTime + 0.2); // Play for 0.2 seconds
+};
+
+const handleClick = () => {
+	// Trigger vibration
+	if (navigator.vibrate) {
+		navigator.vibrate(200); // Vibrate for 200ms
+	}
+
+	// Play tone
+	playTone();
+};
+
 const HeroSection = () => {
-	// Variants for staggered animation
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.2, // Delay between child animations
+				staggerChildren: 0.2,
 			},
 		},
 	};
@@ -84,17 +106,15 @@ const HeroSection = () => {
 						style.
 					</motion.p>
 
-					<motion.div
-					 variants={itemVariants}
-					 className="w-full"
-					 >
+					<motion.div variants={itemVariants} className="w-full">
 						<Link
-							href="#"
+							href="/category/men's clothing"
 							className={buttonVariants({
 								variant: "default",
 								className:
-									"w-full rounded-full text-white bg-black py-4 px-[54px] text-base font-satoshi font-[400] mt-1",
+									"w-full rounded-full text-white bg-black py-5 px-[54px] text-base font-satoshi font-[400] mt-1",
 							})}
+							onClick={handleClick}
 						>
 							Shop Now
 						</Link>
@@ -198,7 +218,6 @@ const HeroSection = () => {
 								fill
 								alt="versace"
 								className="object-contain"
-								
 							/>
 						</div>
 

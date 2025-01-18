@@ -35,7 +35,7 @@ const UpToDate = () => {
 						className={buttonVariants({
 							variant: "outline",
 							className:
-								"w-full rounded-full text-black bg-transparent py-5 px-[54px] text-base font-satoshi font-[400]  border-black border-opacity-10",
+								"w-full rounded-full text-black bg-white py-5 px-[54px] text-base font-satoshi font-[400]  border-black border-opacity-10",
 						})}
 					>
 						Subscribe to Newsletter

@@ -22,7 +22,7 @@ export function MobileNav() {
 						initial={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: "-100%" }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5, ease: "easeInOut" }}
+						transition={{ duration: 0.5, ease: "spring" }}
 					>
 						{/* Hamburger Menu */}
 						<Sheet>
@@ -38,10 +38,10 @@ export function MobileNav() {
 									/>
 								</button>
 							</SheetTrigger>
-							<SheetContent side="left" className="w-[250px] sm:w-[300px]">
+							<SheetContent side="left" className="w-[250px] sm:w-[300px] bg-white">
 								<div className="py-4">
 									<h2 className="text-lg font-bold mb-4">Menu</h2>
-									<ul className="space-y-2">
+									<ul className="space-y-2 text-satoshi font-normal text-sm text-black">
 										<li>
 											<Link href="/" className="block py-2 hover:text-gray-600">
 												Home

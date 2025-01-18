@@ -51,7 +51,7 @@ const NewArrivals = () => {
 				<div className="px-4">
 					<div className="w-full mt-1">
 						<Link
-							href="#"
+							href={`/category/men's clothing`}
 							className={buttonVariants({
 								variant: "outline",
 								className:

@@ -49,7 +49,7 @@ const TopSelling = () => {
 				<div className="px-4">
 					<div className="w-full mt-1">
 						<Link
-							href="#"
+							href={`/category/electronics`}
 							className={buttonVariants({
 								variant: "outline",
 								className:
