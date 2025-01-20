@@ -1,16 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Product, useProductStore } from "@/lib/store";
 
 export function MobileNav() {
 	const [isSearchVisible, setIsSearchVisible] = useState(false);
+	const [searchQuery, setSearchQuery] = useState("");
+	const [searchResults, setSearchResults] = useState<Product[] | []>([]);
+	const { allProducts, fetchProducts } = useProductStore();
+	const searchInputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		fetchProducts();
+	}, []);
+
+	useEffect(() => {
+		if (isSearchVisible && searchInputRef.current) {
+			searchInputRef.current.focus();
+		}
+	}, [isSearchVisible]);
 
 	const toggleSearch = () => {
 		setIsSearchVisible(!isSearchVisible);
+	};
+
+	const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		const query = e.target.value.toLowerCase();
+		console.log(query);
+		setSearchQuery(query);
+
+		// Filter products based on query
+
+		const filteredResults = allProducts.filter((product) => {
+			return product.title.toLowerCase().includes(query);
+		});
+		setSearchResults(filteredResults);
 	};
 
 	return (
@@ -22,7 +50,7 @@ export function MobileNav() {
 						initial={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: "-100%" }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5, ease: "spring" }}
+						transition={{ duration: 0.5, ease: "easeInOut" }}
 					>
 						{/* Hamburger Menu */}
 						<Sheet>
@@ -38,7 +66,10 @@ export function MobileNav() {
 									/>
 								</button>
 							</SheetTrigger>
-							<SheetContent side="left" className="w-[250px] sm:w-[300px] bg-white">
+							<SheetContent
+								side="left"
+								className="w-[250px] sm:w-[300px] bg-white"
+							>
 								<div className="py-4">
 									<h2 className="text-lg font-bold mb-4">Menu</h2>
 									<ul className="space-y-2 text-satoshi font-normal text-sm text-black">
@@ -78,7 +109,7 @@ export function MobileNav() {
 
 						{/* Logo */}
 						<Link href="/">
-							<p className="text-xl font-bold uppercase font-integral  flex items-center justify-center">
+							<p className="text-xl font-bold uppercase font-integral flex items-center justify-center">
 								SHOP.CO
 							</p>
 						</Link>
@@ -88,7 +119,7 @@ export function MobileNav() {
 
 			{/* Search Bar */}
 			<motion.div
-				className="flex-1 px-4"
+				className="flex-1 px-4 relative"
 				initial={{ width: 0, opacity: 0, display: "hidden" }}
 				animate={{
 					width: isSearchVisible ? "100%" : 0,
@@ -106,8 +137,38 @@ export function MobileNav() {
 				<input
 					type="search"
 					placeholder="Search..."
+					value={searchQuery}
+					onChange={handleSearch}
+					ref={searchInputRef}
 					className="border border-black rounded-xl w-full px-2 py-1 outline-none"
 				/>
+				{/* Search Results */}
+				{searchQuery && (
+					<div className="absolute top-full left-0 w-full bg-white border border-gray-300 mt-1 rounded-md max-h-40 overflow-y-auto z-10">
+						{searchResults.length > 0 ? (
+							searchResults.map((product) => (
+								<Link
+									key={product.id}
+									href={`/products/${product.id}`}
+									className=" "
+								>
+									<div className="px-2 py-2 w-full flex items-center gap-3 text-sm font-satoshi font-normal leading-4 active:bg-gray">
+										<Image
+											src={product.image}
+											width={60}
+											height={40}
+											alt="product image"
+										/>
+
+										{product.title}
+									</div>
+								</Link>
+							))
+						) : (
+							<p className="px-4 py-2 text-gray-500">No results found</p>
+						)}
+					</div>
+				)}
 			</motion.div>
 
 			{/* Right Icons */}

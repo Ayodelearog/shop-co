@@ -93,6 +93,7 @@ const FilterPopover: React.FC<FilterPopoverProps> = ({ isOpen, onClose }) => {
 						initial={{ y: "100%" }}
 						animate={{ y: 0 }}
 						exit={{ y: "100%" }}
+						// transition={{ type: "easeInOut" }}
 						transition={{ type: "spring", damping: 30, stiffness: 160 }}
 						className="fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-3xl shadow-lg mt-[60px]"
 						style={{ height: "calc(95vh - 30px)" }}
@@ -117,9 +118,11 @@ const FilterPopover: React.FC<FilterPopoverProps> = ({ isOpen, onClose }) => {
 									<h3 className="text-lg font-semibold mb-2">Categories</h3>
 									{isLoading ? (
 										<p>Loading categories...</p>
-									) : error ? (
-										<p>Error loading categories: {error}</p>
-									) : (
+									) 
+									// : error ? (
+									// 	<p>Error loading categories: {error}</p>
+									// ) 
+									: (
 										categories.map((category) => (
 											<div
 												key={category}

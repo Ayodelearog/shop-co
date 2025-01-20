@@ -5,7 +5,7 @@ interface SocialIconProps {
 }
 
 const SocialIcon: React.FC<SocialIconProps> = ({ name, color }) => {
-    console.log(name)
+   
 	if ((name === "twitter")) {
 		return (
 			<svg

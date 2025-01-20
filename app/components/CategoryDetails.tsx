@@ -11,36 +11,47 @@ import {
 import { Product } from "@/lib/store"
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
-// import { useToast } from "./ui/Toast"
 import UpToDate from "./UpToDate"
 import Footer from "./ui/Footer"
 import ProductCard from "./ui/ProductCard"
 import Link from "next/link"
 import FilterPopover from "./ui/FilterPopover"
-// import FilterPopover from "./FilterPopover"
+
 
 interface CategoryDetailsProps {
   products: Product[]
 }
 
 const CategoryDetails = ({ products }: CategoryDetailsProps) => {
-//   const addToCart = useProductStore((state) => state.addToCart)
-//   const updateCartItemQuantity = useProductStore(
-//     (state) => state.updateCartItemQuantity
-//   )
-//   const [activeId, setActiveId] = useState(0)
-//   const [itemQuantity, setItemQuantity] = useState<number>(1)
-//   const { showToast } = useToast()
+
   const [header, setHeader] = useState("")
 //   const [categoryLink, setCategoryLink] = useState("")
   const [isFilterOpen, setIsFilterOpen] = useState(false)
 
   useEffect(() => {
-    if (products[0].category.includes("men's")) {
-      setHeader("New Arrivals")
-    //   setCategoryLink("category/men's clothing")
-    } else {
-      setHeader("Top Selling")
+    // if (products[0].category.includes("men's")) {
+    //   setHeader("New Arrivals")
+    // //   setCategoryLink("category/men's clothing")
+    // } else {
+    //   setHeader("Top Selling")
+    // }
+
+    switch (true) {
+      case products[0]?.category.includes("men's"):
+        setHeader("New Arrivals");
+        // setCategoryLink("category/men's clothing");
+        break;
+        case products[0]?.category.includes("women"):
+        setHeader("Women's Clothing");
+        // setCategoryLink("category/men's clothing");
+        break;
+        case products[0]?.category.includes("jewelery"):
+        setHeader("Jewelry");
+        // setCategoryLink("category/men's clothing");
+        break;
+      default:
+        setHeader("Top Selling");
+        break;
     }
   }, [products])
 
@@ -58,7 +69,7 @@ const CategoryDetails = ({ products }: CategoryDetailsProps) => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/category/1">Category</BreadcrumbLink>
+              <BreadcrumbLink href="/category">Category</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

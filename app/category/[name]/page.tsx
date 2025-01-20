@@ -10,11 +10,9 @@ type PageProps = {
 
 export default async function CategoryPage({ params }: PageProps) {
 	const { name } = await params;
-	// console.log(params);
 	const { fetchProductsByCategory } = useProductStore.getState();
 	const products = await fetchProductsByCategory(name, false);
-    console.log(name)
-    console.log(products)
+   
 
 	if (!products) {
 		notFound();

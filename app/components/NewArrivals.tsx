@@ -19,16 +19,18 @@ const NewArrivals = () => {
 	useEffect(() => {
 		const fetchMensClothing = async () => {
 			const productArr = await fetchProductsByCategory("men's clothing", false);
+
+			
 			setMensCategory(productArr);
 
-			console.log(productArr);
+		
 		};
 
 		fetchMensClothing();
 	}, [fetchProductsByCategory]);
 
 	if (isLoading) return <div>Loading...</div>;
-	if (error) return <div>Error: {error}</div>;
+	// if (error) return <div>Error: {error}</div>;
 
 	return (
 		<section className=" w-full">

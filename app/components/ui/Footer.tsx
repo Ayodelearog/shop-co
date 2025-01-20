@@ -3,28 +3,7 @@ import Image from "next/image";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
 
-// const footerLinks = [
-//     {
-//         title: "company",
-//         links: {
-//             About: "#",
-//             Features: "#",
-//             Works: "#",
-//             Career: "#",
 
-//         }
-//     },
-//     {
-//         title: "help",
-//         links: {
-//             Customer_Support: "#",
-//             Delivery_Details: "#",
-//             Terms_"&"_Conditions: "#",
-//             Career: "#",
-
-//         }
-//     },
-// ]
 
 const Footer = () => {
 	return (
@@ -73,8 +52,8 @@ const Footer = () => {
 						<Link href="#">Customer Support</Link>
 						<Link href="#">delivery details</Link>
 						<Link href="#">terms & conditions</Link>
-						<Link href="#">Career</Link>
-					</div>privacy policy
+						<Link href="#">privacy policy</Link>
+					</div>
 				</div>
 				<div className="w-full flex flex-col items-start gap-4">
 					<h4 className="text-[14px] font-satoshi leading-[18px] text-black font-medium tracking-[3px]">

@@ -6,7 +6,7 @@ import ProductCard from "./ui/ProductCard";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
-const TopSelling = () => {
+const WomensCategory = () => {
 	const itemVariants = {
 		hidden: { opacity: 0, y: -50 },
 		visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -14,15 +14,15 @@ const TopSelling = () => {
 
 	const { isLoading, error, fetchProductsByCategory } = useProductStore();
 
-	const [electronicsCategory, setElectronicsCategory] = useState<Product[]>([]);
+	const [WomenCategory, setWomenCategory] = useState<Product[]>([]);
 
 	useEffect(() => {
-		const fetchElectronics = async () => {
-			const productArr = await fetchProductsByCategory("electronics", false);
-			setElectronicsCategory(productArr);
+		const fetchWomenCategory = async () => {
+			const productArr = await fetchProductsByCategory("women's clothing", false);
+			setWomenCategory(productArr);
 		};
 
-		fetchElectronics();
+		fetchWomenCategory();
 	}, [fetchProductsByCategory]);
 
 	if (isLoading) return <div>Loading...</div>;
@@ -35,11 +35,11 @@ const TopSelling = () => {
 					className="text-[36px] font-bold font-integral leading-[34px] text-center"
 					variants={itemVariants}
 				>
-					TOP SELLING
+					WOMEN'S CLOTHING
 				</motion.h2>
 
 				<div className="flex items-center gap-4 pl-4 w-full overflow-y-hidden overflow-x-auto py-4 mt-2">
-					{electronicsCategory.map((product) => (
+					{WomenCategory.map((product) => (
 						<Link href={`/products/${product.id}`} key={product.id}>
 							<ProductCard product={product} />
 						</Link>
@@ -49,7 +49,7 @@ const TopSelling = () => {
 				<div className="px-4">
 					<div className="w-full mt-1">
 						<Link
-							href={`/category/electronics`}
+							href={`/category/women's clothing`}
 							className={buttonVariants({
 								variant: "outline",
 								className:
@@ -67,4 +67,4 @@ const TopSelling = () => {
 	);
 };
 
-export default TopSelling;
+export default WomensCategory;
