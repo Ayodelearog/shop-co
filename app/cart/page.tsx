@@ -155,8 +155,8 @@ export default function Cart() {
 				</div>
 
 				{/* Promo Code Input */}
-				<div className="w-full flex items-center justify-between gap-1">
-					<div className="w-fit relative flex items-center">
+				<div className="w-full flex items-center justify-between gap-3">
+					<div className=" relative flex items-center">
 						<Image
 							src="/ShopCo_icons/tag.svg"
 							width={20}
@@ -169,24 +169,18 @@ export default function Cart() {
 							placeholder="Add promo code"
 							value={promoCode}
 							onChange={(e) => setPromoCode(e.target.value)}
-							className="bg-gray placeholder:font-satoshi placeholder:text-3.5 px-4 pl-[46px] py-3 outline-none placeholder:font-normal placeholder:text-black placeholder:text-opacity-40 rounded-[62px]"
+							className="bg-gray placeholder:font-satoshi placeholder:text-3.5 px-4 pl-[46px] py-3 outline-none placeholder:font-normal placeholder:text-black placeholder:text-opacity-40 rounded-[62px] w-[100%]"
 						/>
 					</div>
 
-					<div className="w-full">
+					<div className="w-fit">
 						<Button
 							onClick={applyPromoCode}
 							variant="default"
 							className="w-full rounded-[62px] text-white bg-black text-[14px] font-satoshi font-medium px-[26px] py-6"
 						>
 							Apply
-							<Image
-								src="/ShopCo_icons/arrow-right-white.svg"
-								width={20}
-								height={20}
-								alt="arrow right icon"
-								className="absolute left-4"
-							/>
+						
 						</Button>
 					</div>
 				</div>
