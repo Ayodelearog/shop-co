@@ -28,7 +28,7 @@ function OrderConfirmationContent() {
 
 	if (isLoading) {
 		return (
-			<div className="font-satoshi text-5 font-medium">
+			<div className=" w-full px-4 font-satoshi text-5 font-medium">
 				Loading order confirmation...
 			</div>
 		);
