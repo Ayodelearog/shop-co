@@ -189,14 +189,14 @@ export function MobileNav() {
 						className="object-contain"
 					/>
 				</motion.button>
-				<button className="relative w-6 h-6" aria-label="Cart">
+				<Link href="/cart" className="relative w-6 h-6" aria-label="Cart">
 					<Image
 						src="/ShopCo_icons/cart.svg"
 						fill={true}
 						alt="cart icon"
 						className="object-contain"
 					/>
-				</button>
+				</Link>
 				<button className="relative w-6 h-6" aria-label="Account">
 					<Image
 						src="/ShopCo_icons/accounts.svg"
