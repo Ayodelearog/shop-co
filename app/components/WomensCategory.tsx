@@ -12,7 +12,7 @@ const WomensCategory = () => {
 		visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 	};
 
-	const { isLoading, error, fetchProductsByCategory } = useProductStore();
+	const { isLoading, fetchProductsByCategory } = useProductStore();
 
 	const [WomenCategory, setWomenCategory] = useState<Product[]>([]);
 
@@ -35,7 +35,7 @@ const WomensCategory = () => {
 					className="text-[36px] font-bold font-integral leading-[34px] text-center"
 					variants={itemVariants}
 				>
-					WOMEN'S CLOTHING
+					WOMEN&apos;S CLOTHING
 				</motion.h2>
 
 				<div className="flex items-center gap-4 pl-4 w-full overflow-y-hidden overflow-x-auto py-4 mt-2">

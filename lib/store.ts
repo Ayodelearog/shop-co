@@ -8,6 +8,7 @@ export interface Product {
 	description: string;
 	category: string;
 	image: string;
+	quantity: number;
 	rating: {
 		rate: number;
 		count: number;
@@ -46,7 +47,7 @@ const storage = {
 		try {
 			return localStorage.getItem(name);
 		} catch (error) {
-			// console.warn(`Error reading from localStorage:`, error);
+			console.warn(`Error reading from localStorage:`, error);
 			return null;
 		}
 	},
@@ -54,14 +55,14 @@ const storage = {
 		try {
 			localStorage.setItem(name, value);
 		} catch (error) {
-			// console.warn(`Error writing to localStorage:`, error);
+			console.warn(`Error writing to localStorage:`, error);
 		}
 	},
 	removeItem: (name: string): void => {
 		try {
 			localStorage.removeItem(name);
 		} catch (error) {
-			// console.warn(`Error removing item from localStorage:`, error);
+			console.warn(`Error removing item from localStorage:`, error);
 		}
 	},
 };

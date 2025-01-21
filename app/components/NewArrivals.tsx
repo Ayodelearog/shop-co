@@ -12,7 +12,7 @@ const NewArrivals = () => {
 		visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 	};
 
-	const { isLoading, error, fetchProductsByCategory } = useProductStore();
+	const { isLoading, fetchProductsByCategory } = useProductStore();
 
 	const [mensCategory, setMensCategory] = useState<Product[]>([]);
 

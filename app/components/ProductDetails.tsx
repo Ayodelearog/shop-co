@@ -81,7 +81,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbPage>{product.id}</BreadcrumbPage>
+							<BreadcrumbPage>{product.title.trimEnd()}</BreadcrumbPage>
 						</BreadcrumbItem>
 					</BreadcrumbList>
 				</Breadcrumb>

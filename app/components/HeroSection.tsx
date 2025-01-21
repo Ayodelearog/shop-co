@@ -108,7 +108,7 @@ const HeroSection = () => {
 
 					<motion.div variants={itemVariants} className="w-full">
 						<Link
-							href="/category/men's clothing"
+							href="/products"
 							className={buttonVariants({
 								variant: "default",
 								className:

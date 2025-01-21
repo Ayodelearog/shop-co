@@ -30,7 +30,7 @@ const FilterPopover: React.FC<FilterPopoverProps> = ({ isOpen, onClose }) => {
 	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
 
-	const { categories, fetchCategories, isLoading, error } = useProductStore();
+	const { categories, fetchCategories, isLoading } = useProductStore();
 
     const [isSizeExpanded, setIsSizeExpanded] = useState(true)
     const [activeId, setActiveId] = useState<number | null>(null)

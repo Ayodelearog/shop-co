@@ -16,7 +16,7 @@ export function MobileNav() {
 
 	useEffect(() => {
 		fetchProducts();
-	}, []);
+	}, [fetchProducts]);
 
 	useEffect(() => {
 		if (isSearchVisible && searchInputRef.current) {
@@ -88,18 +88,18 @@ export function MobileNav() {
 										</li>
 										<li>
 											<Link
-												href="/about"
+												href="/cart"
 												className="block py-2 hover:text-gray-600"
 											>
-												About
+												Cart
 											</Link>
 										</li>
 										<li>
 											<Link
-												href="/contact"
+												href="/category"
 												className="block py-2 hover:text-gray-600"
 											>
-												Contact
+												Category
 											</Link>
 										</li>
 									</ul>
@@ -108,8 +108,8 @@ export function MobileNav() {
 						</Sheet>
 
 						{/* Logo */}
-						<Link href="/">
-							<p className="text-xl font-bold uppercase font-integral flex items-center justify-center">
+						<Link href="/" className="p-0">
+							<p className="text-[25px] font-bold uppercase font-integral pb-1">
 								SHOP.CO
 							</p>
 						</Link>
@@ -155,7 +155,7 @@ export function MobileNav() {
 									<div className="px-2 py-2 w-full flex items-center gap-3 text-sm font-satoshi font-normal leading-4 active:bg-gray">
 										<Image
 											src={product.image}
-											width={60}
+											width={40}
 											height={40}
 											alt="product image"
 										/>

@@ -19,11 +19,11 @@ import Image  from "next/image";
 export default function ProductPageComp() {
 	const { fetchProducts, allProducts } = useProductStore();
 	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 6;
+	const itemsPerPage = 4;
 
 	useEffect(() => {
 		fetchProducts();
-	}, []);
+	}, [fetchProducts]);
 
 	// Calculate the index range for the current page
 	const indexOfLastProduct = currentPage * itemsPerPage;
@@ -94,7 +94,7 @@ export default function ProductPageComp() {
 								<button
 									key={pageNumber}
 									onClick={() => handlePageChange(pageNumber)}
-									className={`min-w-[36px] px-2.5 py-2 text-3 rounded-[8px] font-satoshi font-medium  ${
+									className={`min-w-[28px] px-3 py-1.5 text-3 rounded-[8px] font-satoshi font-medium transition-colors duration-300 ease-in-out ${
 										pageNumber === currentPage
 											? "bg-gray bg-opacity-[6] text-black "
 											: "text-black text-opacity-50"
